@@ -1,192 +1,74 @@
-# 💄 Nykaa E-Commerce Database Management System
+# 💄 Nykaa E-Commerce Database Management System – Week 3
 
 ## 📌 Project Overview
 
-The **Nykaa E-Commerce Database Management System** is a DBMS project developed to design and manage the database of an online beauty and personal care shopping platform. The project focuses on storing and managing customer information, products, brands, categories, orders, payments, reviews, and inventory efficiently using a relational database.
+This repository contains the **Week 3** work for the **Nykaa E-Commerce Database Management System** project. The focus of this phase is on designing the database structure by identifying entities, defining their attributes, establishing relationships, and creating an Entity-Relationship (ER) Diagram for the Nykaa e-commerce platform.
 
-This project demonstrates the concepts of Database Management Systems such as entity analysis, ER modeling, normalization, relational schema design, SQL queries, and database implementation.
+## 🎯 Objectives
 
----
+* Identify the main entities of the Nykaa e-commerce system.
+* Define attributes, primary keys, and foreign keys.
+* Establish relationships between entities.
+* Design a normalized database structure.
+* Create an ER Diagram to represent the database visually.
 
-## 🎯 Project Objectives
+## 📂 Entities Included
 
-- Design a structured database for an e-commerce platform.
-- Manage customer and product information efficiently.
-- Maintain relationships between different entities.
-- Reduce data redundancy using normalization.
-- Implement SQL operations for data management.
-- Provide secure and efficient order processing.
+* Customer
+* Product
+* Category
+* Brand
+* Cart
+* Orders
+* Order Details
+* Payment
+* Review
+* Admin
 
----
+## 🔗 Relationships
 
-## 🛠️ Technologies Used
+The database includes relationships such as:
 
-- Database: Oracle SQL
-- SQL Language
-- DBMS Concepts
-- Git & GitHub
-- Microsoft Word (Documentation)
+* Customer places Orders
+* Customer adds Products to Cart
+* Category contains Products
+* Brand manufactures Products
+* Orders contain Order Details
+* Orders have Payment
+* Customer writes Reviews
+* Product receives Reviews
+* Admin manages Products and Orders
 
----
+## 🛠️ Tools Used
 
-## 📂 Project Modules
-
-### 👤 Customer Management
-- Customer Registration
-- Login Details
-- Customer Profile
-- Address Management
-
-### 🛍️ Product Management
-- Product Information
-- Categories
-- Brands
-- Product Pricing
-
-### 🛒 Shopping Cart
-- Add Products
-- Update Quantity
-- Remove Products
-
-### 📦 Order Management
-- Place Orders
-- Order Details
-- Order Status
-- Delivery Information
-
-### 💳 Payment Management
-- Payment Methods
-- Payment Status
-- Transaction Details
-
-### ⭐ Review Management
-- Product Ratings
-- Customer Reviews
-
-### 👨‍💼 Admin Management
-- Product Management
-- Order Monitoring
-- Customer Management
-
----
-
-## 🗄️ Database Entities
-
-- Customer
-- Product
-- Category
-- Brand
-- Cart
-- Orders
-- Order Details
-- Payment
-- Review
-- Admin
-
----
-
-## 📊 Database Features
-
-- Primary Keys
-- Foreign Keys
-- Entity Relationships
-- Data Integrity
-- SQL Constraints
-- Normalized Tables
-- CRUD Operations
-
----
+* **dbdiagram.io** – Database relationship design
+* **Draw.io** – ER Diagram creation
+* **GitHub** – Version control and project hosting
+* **Markdown** – Documentation
 
 ## 📁 Repository Structure
 
 ```
-Nykaa-Ecommerce-Project/
-│
+Week-3/
 ├── README.md
-├── SQL/
-│   ├── Create_Tables.sql
-│   ├── Insert_Values.sql
-│   ├── Queries.sql
-│
-├── Documentation/
-│   ├── Project_Report.pdf
-│   ├── ER_Diagram.png
-│   ├── Relational_Schema.png
-│
-└── Images/
-    ├── ER_Diagram.png
-    └── Database_Design.png
+├── Entity_Analysis.docx
+├── Relationships.docx
+├── ER_Diagram.drawio
+├── ER_Diagram.png
+└── dbdiagram.dbml
 ```
 
----
+## 📖 Learning Outcomes
 
-## 🚀 How to Run
-
-1. Clone this repository.
-2. Open Oracle SQL or SQL Developer.
-3. Execute the `Create_Tables.sql` file.
-4. Run the `Insert_Values.sql` file.
-5. Execute SQL queries to test the database.
-6. Verify the relationships and outputs.
-
----
-
-## 📅 Project Timeline
-
-### Week 1
-- Requirement Analysis
-- Problem Statement
-- Database Design
-- Entity Analysis
-- ER Diagram
-- Relational Schema
-
-### Week 2
-- Table Creation
-- Data Insertion
-- SQL Queries
-- Testing
-- Documentation
-- GitHub Repository
-
----
-
-## 🎓 Learning Outcomes
-
-Through this project, I learned:
-
-- Database Design
-- Entity Relationship Modeling
-- SQL Programming
-- Table Relationships
-- Database Normalization
-- Primary & Foreign Keys
-- CRUD Operations
-- GitHub Repository Management
-
----
-
-## 📌 Future Enhancements
-
-- Product Recommendation System
-- Wishlist Feature
-- Coupon Management
-- Return & Refund Module
-- Inventory Dashboard
-- Sales Analytics
-
----
+* Understand entity analysis and database design.
+* Apply primary key and foreign key concepts.
+* Design one-to-one and one-to-many relationships.
+* Create a structured ER Diagram for an e-commerce database.
 
 ## 👩‍💻 Author
 
-**Name:** Your Name
+**Snowfer Ameena**
 
-**Course:** B.Tech Computer Science
+**Project:** Nykaa E-Commerce Database Management System
+**Week:** 3 – Entity Analysis & ER Diagram Design
 
-**Subject:** Database Management System (DBMS)
-
----
-
-## 📜 License
-
-This project is developed for educational and academic purposes only.
