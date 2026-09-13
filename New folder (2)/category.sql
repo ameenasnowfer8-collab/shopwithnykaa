@@ -1,0 +1,146 @@
+CREATE TABLE Category (
+    Category_ID NUMBER PRIMARY KEY,
+    Category_Name VARCHAR2(50) NOT NULL,
+    Description VARCHAR2(200),
+    Status VARCHAR2(20)
+);
+Table created.
+
+INSERT INTO Category VALUES
+(101, 'Skincare', 'Products for skin care', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(102, 'Makeup', 'Beauty and makeup products', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(103, 'Haircare', 'Products for hair care', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(104, 'Fragrance', 'Perfumes and fragrances', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(105, 'Bodycare', 'Products for body care', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(106, 'Bath and Shower', 'Bath and shower products', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(107, 'Nails', 'Nail care and nail products', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(108, 'Lip Care', 'Products for lip care', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(109, 'Sun Care', 'Sunscreen and sun protection products', 'Active');
+1 row created.
+
+INSERT INTO Category VALUES
+(110, 'Men Grooming', 'Grooming products for men', 'Active');
+1 row created.
+
+Select * from Category;
+
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+STATUS
+--------------------
+        101 Skincare
+Products for skin care
+Active
+
+        102 Makeup
+Beauty and makeup products
+Active
+
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+STATUS
+--------------------
+
+        103 Haircare
+Products for hair care
+Active
+
+        104 Fragrance
+Perfumes and fragrances
+
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+STATUS
+--------------------
+Active
+
+        105 Bodycare
+Products for body care
+Active
+
+        106 Bath and Shower
+
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+STATUS
+--------------------
+Bath and shower products
+Active
+
+        107 Nails
+Nail care and nail products
+Active
+
+
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+STATUS
+--------------------
+        108 Lip Care
+Products for lip care
+Active
+
+        109 Sun Care
+Sunscreen and sun protection products
+Active
+
+CATEGORY_ID CATEGORY_NAME
+----------- --------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+STATUS
+--------------------
+
+        110 Men Grooming
+Grooming products for men
+Active
+
+
+10 rows selected.
+
+SELECT 
+    c.Category_Name,
+    COUNT(p.Product_ID) AS Total_Products,
+    SUM(p.Stock) AS Total_Stock
+FROM Category c
+LEFT JOIN Product p
+ON c.Category_ID = p.Category_ID
+GROUP BY c.Category_ID, c.Category_Name
+ORDER BY c.Category_ID;
+ 
+  commit;
+  commit complete
