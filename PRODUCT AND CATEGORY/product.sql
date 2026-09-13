@@ -1,0 +1,663 @@
+
+CREATE TABLE Product (
+    Product_ID NUMBER PRIMARY KEY,
+    Product_Name VARCHAR2(100) NOT NULL,
+    Brand_ID NUMBER,
+    Category_ID NUMBER,
+    Price NUMBER(10,2),
+    Stock NUMBER,
+    Description VARCHAR2(200),
+    Skin_Type VARCHAR2(50),
+    Rating NUMBER(2,1),
+    Expiry_Date DATE,
+    CONSTRAINT fk_product_category
+        FOREIGN KEY (Category_ID)
+        REFERENCES Category(Category_ID)
+);
+Table created.
+Insert into Product values
+(1001, 'Vitamin C Face Serum', 101, 101, 599.00, 50,
+ 'Vitamin C serum for glowing skin', 'All Skin Types', 4.5, DATE '2028-12-31');
+ 1 row created.
+Insert into Product values
+(1002, 'Matte Lipstick', 102, 102, 399.00, 55,
+ 'Long lasting matte lipstick', 'All Skin Types', 4.5, DATE '2029-01-31');
+ 1 row created.
+Insert into Product values
+(1003, 'Anti Dandruff Shampoo', 103, 103, 349.00, 50,
+ 'Shampoo for dandruff control', 'All Hair Types', 4.3, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1004, 'Floral Eau De Parfum', 104, 104, 899.00, 30,
+ 'Fresh floral fragrance', 'All Skin Types', 4.5, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1005, 'Body Lotion', 105, 105, 349.00, 60,
+ 'Moisturizing body lotion', 'Dry Skin', 4.4, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1006, 'Lavender Shower Gel', 106, 106, 299.00, 50,
+ 'Relaxing lavender shower gel', 'All Skin Types', 4.5, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1007, 'Red Nail Polish', 107, 107, 199.00, 60,
+ 'Glossy red nail polish', 'All Skin Types', 4.4, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1008, 'Lip Balm', 108, 108, 149.00, 80,
+ 'Moisturizing lip balm', 'All Skin Types', 4.5, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1009, 'SPF 50 Sunscreen', 109, 109, 599.00, 60,
+ 'High protection sunscreen', 'All Skin Types', 4.6, DATE '2029-01-31');
+ 1 row created.
+INSERT INTO Product VALUES
+(1010, 'Beard Oil', 110, 110, 399.00, 50,
+ 'Nourishing beard oil', 'All Skin Types', 4.5, DATE '2029-01-31');
+1 row created.
+Select * from Product;
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1001
+Vitamin C Face Serum
+       101         101        599         50
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Vitamin C serum for glowing skin
+All Skin Types                                            4.5 31-DEC-28
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1002
+Matte Lipstick
+       102         102        399         55
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Long lasting matte lipstick
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1003
+Anti Dandruff Shampoo
+       103         103        349         50
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Shampoo for dandruff control
+All Hair Types                                            4.3 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1004
+Floral Eau De Parfum
+       104         104        899         30
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Fresh floral fragrance
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1005
+Body Lotion
+       105         105        349         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Moisturizing body lotion
+Dry Skin                                                  4.4 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1006
+Lavender Shower Gel
+       106         106        299         50
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Relaxing lavender shower gel
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1007
+Red Nail Polish
+       107         107        199         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Glossy red nail polish
+All Skin Types                                            4.4 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1008
+Lip Balm
+       108         108        149         80
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Moisturizing lip balm
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1009
+SPF 50 Sunscreen
+       109         109        599         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+High protection sunscreen
+All Skin Types                                            4.6 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1010
+Beard Oil
+       110         110        399         50
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Nourishing beard oil
+All Skin Types                                            4.5 31-JAN-29
+
+
+10 rows selected.
+
+UPDATE Product
+SET Price = 649.00,
+       Stock = 45
+   WHERE Product_ID = 1001;
+1 row updated.
+
+UPDATE Product
+SET Price = 449.00,
+    Stock = 60
+WHERE Product_ID = 1002;
+1 row updated.
+
+
+DELETE FROM Product
+WHERE Product_ID = 1009;
+1 row deleted.
+
+DELETE FROM Product
+WHERE Product_ID = 1010;
+1 row deleted.
+
+SELECT * FROM Product
+2 WHERE Product_ID IN (1001, 1002);
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1001
+Vitamin C Face Serum
+       101         101        649         45
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Vitamin C serum for glowing skin
+All Skin Types                                            4.5 31-DEC-28
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1002
+Matte Lipstick
+       102         102        449         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Long lasting matte lipstick
+All Skin Types                                            4.5 31-JAN-29
+
+SQL> SELECT * FROM Product
+  2  WHERE Product_ID IN (1009, 1010);
+
+no rows selected
+
+SQL> SELECT * FROM Product;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1001
+Vitamin C Face Serum
+       101         101        649         45
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Vitamin C serum for glowing skin
+All Skin Types                                            4.5 31-DEC-28
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1002
+Matte Lipstick
+       102         102        449         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Long lasting matte lipstick
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1003
+Anti Dandruff Shampoo
+       103         103        349         50
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Shampoo for dandruff control
+All Hair Types                                            4.3 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1004
+Floral Eau De Parfum
+       104         104        899         30
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Fresh floral fragrance
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1005
+Body Lotion
+       105         105        349         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Moisturizing body lotion
+Dry Skin                                                  4.4 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1006
+Lavender Shower Gel
+       106         106        299         50
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Relaxing lavender shower gel
+All Skin Types                                            4.5 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1007
+Red Nail Polish
+       107         107        199         60
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Glossy red nail polish
+All Skin Types                                            4.4 31-JAN-29
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+      1008
+Lip Balm
+       108         108        149         80
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  BRAND_ID CATEGORY_ID      PRICE      STOCK
+---------- ----------- ---------- ----------
+DESCRIPTION
+--------------------------------------------------------------------------------
+SKIN_TYPE                                              RATING EXPIRY_DA
+-------------------------------------------------- ---------- ---------
+Moisturizing lip balm
+All Skin Types                                            4.5 31-JAN-29
+
+
+8 rows selected.
+
+SELECT
+    p.Product_ID,
+    p.Product_Name,
+    c.Category_ID,
+    c.Category_Name,
+    p.Price,
+    p.Stock
+FROM Product p
+JOIN Category c
+ON p.Category_ID = c.Category_ID
+ORDER BY c.Category_ID;
