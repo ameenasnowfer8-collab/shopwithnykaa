@@ -1,0 +1,134 @@
+ CREATE TABLE Payment (
+    Payment_ID NUMBER PRIMARY KEY,
+    Order_ID NUMBER,
+    Payment_Mode VARCHAR2(20) NOT NULL,
+    Payment_Date DATE NOT NULL,
+    Payment_Amount NUMBER(10,2) NOT NULL,
+    Payment_Status VARCHAR2(20) NOT NULL,
+    CONSTRAINT fk_payment_order
+        FOREIGN KEY (Order_ID)
+        REFERENCES Orders(Order_ID)
+); 
+
+Table created.
+
+INSERT INTO Payment VALUES
+(701, 1, 'UPI', DATE '2026-09-02', 1600.00, 'Successful');
+1 row created.
+
+INSERT INTO Payment VALUES
+(702, 2, 'Credit Card', DATE '2026-09-03', 2300.00, 'Successful');
+1 row created.
+
+INSERT INTO Payment VALUES
+(703, 3, 'Debit Card', DATE '2026-09-05', 1750.00, 'Failed');
+1 row created.
+
+INSERT INTO Payment VALUES
+(704, 4, 'UPI', DATE '2026-09-08', 3200.00, 'Successful');
+1 row created.
+
+INSERT INTO Payment VALUES
+(705, 5, 'Cash on Delivery', DATE '2026-09-10', 950.00, 'Pending');
+1 row created.
+
+
+SELECT *
+ FROM Payment 
+ WHERE Payment_Status = 'Successful';
+
+ PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
+---------- ---------- -------------------- --------- --------------
+PAYMENT_STATUS
+--------------------
+       701          1 UPI                  02-SEP-26           1600
+Successful
+
+       702          2 Credit Card          03-SEP-26           2300
+Successful
+
+       704          4 UPI                  08-SEP-26           3200
+Successful
+
+SELECT *
+ FROM Payment 
+ WHERE Payment_Status = 'Failed';
+
+ 
+PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
+---------- ---------- -------------------- --------- --------------
+PAYMENT_STATUS
+--------------------
+       703          3 Debit Card           05-SEP-26           1750
+Failed
+
+
+UPDATE Payment
+SET Payment_Status = 'Successful'
+WHERE Payment_ID = 703;
+
+1 row updated.
+
+ SELECT * FROM Payment WHERE Payment_ID = 703;
+
+PAYMENT_ID   ORDER_ID PAYMENT_MODE         PAYMENT_D PAYMENT_AMOUNT
+---------- ---------- -------------------- --------- --------------
+PAYMENT_STATUS
+--------------------
+       703          3 Debit Card           05-SEP-26           1750
+Successful
+
+
+SQL> SELECT
+      Payment_Mode,
+      COUNT(*) AS Payment_Count,
+      SUM(Payment_Amount) AS Total_Amount
+ FROM Payment
+ WHERE Payment_Status = 'Successful'
+ GROUP BY Payment_Mode
+ ORDER BY Payment_Mode;
+
+PAYMENT_MODE         PAYMENT_COUNT TOTAL_AMOUNT
+-------------------- ------------- ------------
+Credit Card                      1         2300
+Debit Card                       1         1750
+UPI                              2         4800
+
+
+SQL> SELECT
+         o.Order_ID,
+         o.Customer_ID,
+         o.Order_Date,
+         p.Payment_ID,
+         p.Payment_Mode,
+         p.Payment_Date,
+         p.Payment_Amount,
+         p.Payment_Status
+     FROM Orders o
+     JOIN Payment p
+     ON o.Order_ID = p.Order_ID
+     ORDER BY o.Order_ID;
+
+  ORDER_ID CUSTOMER_ID ORDER_DAT PAYMENT_ID PAYMENT_MODE         PAYMENT_D
+---------- ----------- --------- ---------- -------------------- ---------
+PAYMENT_AMOUNT PAYMENT_STATUS
+-------------- --------------------
+         1         101 02-SEP-26        701 UPI                  02-SEP-26
+          1600 Successful
+
+         2         102 03-SEP-26        702 Credit Card          03-SEP-26
+          2300 Successful
+
+         3         103 05-SEP-26        703 Debit Card           05-SEP-26
+          1750 Successful
+
+
+  ORDER_ID CUSTOMER_ID ORDER_DAT PAYMENT_ID PAYMENT_MODE         PAYMENT_D
+---------- ----------- --------- ---------- -------------------- ---------
+PAYMENT_AMOUNT PAYMENT_STATUS
+-------------- --------------------
+         4         104 08-SEP-26        704 UPI                  08-SEP-26
+          3200 Successful
+
+         5         105 10-SEP-26        705 Cash on Delivery     10-SEP-26
+           950 Pending
