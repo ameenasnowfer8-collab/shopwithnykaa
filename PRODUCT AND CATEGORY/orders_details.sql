@@ -1,0 +1,78 @@
+CREATE TABLE Order_Details (
+    Order_Detail_ID NUMBER PRIMARY KEY,
+    Order_ID NUMBER,
+    Product_ID NUMBER,
+    Quantity NUMBER NOT NULL,
+    Unit_Price NUMBER(10,2) NOT NULL,
+    Discount NUMBER(10,2),
+    Total_Price NUMBER(10,2),
+    CONSTRAINT fk_orderdetails_order
+        FOREIGN KEY (Order_ID)
+        REFERENCES Orders(Order_ID),
+    CONSTRAINT fk_orderdetails_product
+        FOREIGN KEY (Product_ID)
+        REFERENCES Product(Product_ID)
+);
+Table created.
+
+INSERT INTO Order_Details VALUES
+(601, 1, 1001, 2, 599.00, 0.00, 1198.00);
+1 row created.
+
+INSERT INTO Order_Details VALUES
+(602, 2, 1002, 2, 499.00, 0.00, 998.00);
+1 row created.
+
+INSERT INTO Order_Details VALUES
+(603, 3, 1003, 1, 399.00, 0.00, 399.00);
+1 row created.
+
+INSERT INTO Order_Details VALUES
+(604, 4, 1004, 2, 1299.00, 0.00, 2598.00);
+1 row created.
+
+INSERT INTO Order_Details VALUES
+(605, 5, 1005, 1, 349.00, 0.00, 349.00);
+1 row created.
+
+SELECT * FROM Order_Details;
+
+ORDER_DETAIL_ID   ORDER_ID PRODUCT_ID   QUANTITY UNIT_PRICE   DISCOUNT
+--------------- ---------- ---------- ---------- ---------- ----------
+TOTAL_PRICE
+-----------
+            601          1       1001          2        599          0
+       1198
+
+            602          2       1002          2        499          0
+        998
+
+            603          3       1003          1        399          0
+        399
+
+
+ORDER_DETAIL_ID   ORDER_ID PRODUCT_ID   QUANTITY UNIT_PRICE   DISCOUNT
+--------------- ---------- ---------- ---------- ---------- ----------
+TOTAL_PRICE
+-----------
+            604          4       1004          2       1299          0
+       2598
+
+            605          5       1005          1        349          0
+        349
+
+
+
+UPDATE Order_Details
+SET Quantity = 3,
+WHERE Order_Detail_ID = 601;
+
+SELECT * FROM Order_Details WHERE Order_Detail_ID = 601;
+
+ORDER_DETAIL_ID   ORDER_ID PRODUCT_ID   QUANTITY UNIT_PRICE   DISCOUNT
+--------------- ---------- ---------- ---------- ---------- ----------
+TOTAL_PRICE
+-----------
+            601          1       1001          3        599          0
+       1797
+
