@@ -1,0 +1,741 @@
+SQL SELECT
+  2      c.Customer_ID,
+  3      c.Customer_Name,
+  4      o.Order_ID,
+  5      o.Order_Date,
+  6      o.Total_Amount
+  7  FROM Customer c
+  8  INNER JOIN Orders o
+  9      ON c.Customer_ID = o.Customer_ID;
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT TOTAL_AMOUNT
+--------- ------------
+        101 Anitha Kumar                                              201
+16-SEP-26         3500
+
+        102 Rahul                                                     202
+15-SEP-26         1800
+
+        103 Priya                                                     203
+12-SEP-26         3200
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT TOTAL_AMOUNT
+--------- ------------
+        101 Anitha Kumar                                              204
+20-SEP-26         1000
+
+SQL SELECT o.Order_ID,
+  2         o.Order_Date,
+  3         o.Total_Amount,
+  4         p.Payment_Mode,
+  5         p.Payment_Amount,
+  6         p.Payment_Status
+  7  FROM Orders o
+  8  INNER JOIN Payment p
+  9  ON o.Order_ID = p.Order_ID;
+
+  ORDER_ID ORDER_DAT TOTAL_AMOUNT PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- --------- ------------ ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+       201 16-SEP-26         3500 UPI                                      3500
+Successful
+
+       202 15-SEP-26         1800 Card                                     1800
+Successful
+
+       203 12-SEP-26         3200 Net Banking                              3200
+Successful
+
+
+  ORDER_ID ORDER_DAT TOTAL_AMOUNT PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- --------- ------------ ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+       204 20-SEP-26         1000 UPI                                      1000
+Successful
+
+
+SQL SELECT p.Product_ID,
+  2  p.Product_Name,
+  3  od.Order_ID,
+  4  od.Quantity,
+  5  od.Unit_Price,
+  6  od.Subtotal
+  7  FROM Product p
+  8  INNER JOIN Order_Details od
+  9  ON p.Product_ID = od.Product_ID;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  ORDER_ID   QUANTITY UNIT_PRICE   SUBTOTAL
+---------- ---------- ---------- ----------
+         1
+Organic Turmeric Powder
+       201          3       1000       3000
+
+         2
+Black Pepper
+       201          1        500        500
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  ORDER_ID   QUANTITY UNIT_PRICE   SUBTOTAL
+---------- ---------- ---------- ----------
+
+         2
+Black Pepper
+       202          2        500       1000
+
+         3
+Bamboo Toothbrush
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  ORDER_ID   QUANTITY UNIT_PRICE   SUBTOTAL
+---------- ---------- ---------- ----------
+       202          4        200        800
+
+         4
+Reusable Water Bottle
+       203          4        800       3200
+
+         3
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  ORDER_ID   QUANTITY UNIT_PRICE   SUBTOTAL
+---------- ---------- ---------- ----------
+Bamboo Toothbrush
+       204          5        200       1000
+
+SQL SELECT c.Customer_ID,
+  2  c.Customer_Name,
+  3  o.Order_ID,
+  4  o.Order_Date,
+  5  o.Total_Amount
+  6  FROM Customer c
+  7  LEFT JOIN Orders o
+  8  ON c.Customer_ID = o.Customer_ID;
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT TOTAL_AMOUNT
+--------- ------------
+        101 Anitha Kumar                                              201
+16-SEP-26         3500
+
+        102 Rahul                                                     202
+15-SEP-26         1800
+
+        103 Priya                                                     203
+12-SEP-26         3200
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT TOTAL_AMOUNT
+--------- ------------
+        101 Anitha Kumar                                              204
+20-SEP-26         1000
+
+        104 Kavin
+
+
+SQL SELECT c.Customer_ID,
+  2  c.Customer_Name,
+  3  o.Order_ID,
+  4  o.Order_Date,
+  5  o.Total_Amount
+  6  FROM Customer c
+  7  RIGHT JOIN Orders o
+  8  ON c.Customer_ID = o.Customer_ID;
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT TOTAL_AMOUNT
+--------- ------------
+        101 Anitha Kumar                                              201
+16-SEP-26         3500
+
+        101 Anitha Kumar                                              204
+20-SEP-26         1000
+
+        102 Rahul                                                     202
+15-SEP-26         1800
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT TOTAL_AMOUNT
+--------- ------------
+        103 Priya                                                     203
+12-SEP-26         3200
+
+
+SQL SELECT c.Customer_ID,
+  2  c.Customer_Name,
+  3  o.Order_ID,
+  4  o.Order_Date,
+  5  p.Product_ID,
+  6  p.Product_Name,
+  7  od.Quantity,
+  8  od.Unit_Price,
+  9  od.Subtotal,
+ 10  py.Payment_Mode,
+ 11  py.Payment_Amount,
+ 12  py.Payment_Status
+ 13  FROM Customer c
+ 14  INNER JOIN Orders o
+ 15  ON c.Customer_ID = o.Customer_ID
+ 16  INNER JOIN Order_Details od
+ 17  ON o.Order_ID = od.Order_ID
+ 18  INNER JOIN Product p
+ 19  ON od.Product_ID = p.Product_ID
+ 20  INNER JOIN Payment py
+ 21  ON o.Order_ID = py.Order_ID
+ 22  ORDER BY o.Order_Date DESC;
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+        101 Anitha Kumar                                              204
+20-SEP-26          3
+Bamboo Toothbrush
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+         5        200       1000 UPI                                      1000
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+        101 Anitha Kumar                                              201
+16-SEP-26          1
+Organic Turmeric Powder
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+         3       1000       3000 UPI                                      3500
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+        101 Anitha Kumar                                              201
+16-SEP-26          2
+Black Pepper
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+         1        500        500 UPI                                      3500
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+        102 Rahul                                                     202
+15-SEP-26          3
+Bamboo Toothbrush
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+         4        200        800 Card                                     1800
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+        102 Rahul                                                     202
+15-SEP-26          2
+Black Pepper
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+         2        500       1000 Card                                     1800
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+        103 Priya                                                     203
+12-SEP-26          4
+Reusable Water Bottle
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT PRODUCT_ID
+--------- ----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY UNIT_PRICE   SUBTOTAL PAYMENT_MODE                   PAYMENT_AMOUNT
+---------- ---------- ---------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+         4        800       3200 Net Banking                              3200
+Successful
+
+SQL SELECT c.Customer_ID,
+  2  c.Customer_Name,
+  3  o.Order_ID,
+  4  o.Order_Date,
+  5  p.Product_Name,
+  6  od.Quantity,
+  7  od.Subtotal
+  8  FROM Customer c
+  9  INNER JOIN Orders o
+ 10  ON c.Customer_ID = o.Customer_ID
+ 11  INNER JOIN Order_Details od
+ 12  ON o.Order_ID = od.Order_ID
+ 13  INNER JOIN Product p
+ 14  ON od.Product_ID = p.Product_ID
+ 15  ORDER BY c.Customer_ID, o.Order_Date;
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL
+---------- ----------
+        101 Anitha Kumar                                              201
+16-SEP-26
+Organic Turmeric Powder
+         3       3000
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL
+---------- ----------
+        101 Anitha Kumar                                              201
+16-SEP-26
+Black Pepper
+         1        500
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL
+---------- ----------
+        101 Anitha Kumar                                              204
+20-SEP-26
+Bamboo Toothbrush
+         5       1000
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL
+---------- ----------
+        102 Rahul                                                     202
+15-SEP-26
+Bamboo Toothbrush
+         4        800
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL
+---------- ----------
+        102 Rahul                                                     202
+15-SEP-26
+Black Pepper
+         2       1000
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL
+---------- ----------
+        103 Priya                                                     203
+12-SEP-26
+Reusable Water Bottle
+         4       3200
+
+
+SQL SELECT c.Customer_ID,
+  2  c.Customer_Name,
+  3  o.Order_ID,
+  4  o.Order_Date,
+  5  p.Product_Name,
+  6  od.Quantity,
+  7  od.Subtotal,
+  8  py.Payment_Mode,
+  9  py.Payment_Status
+ 10  FROM Customer c
+ 11  INNER JOIN Orders o
+ 12  ON c.Customer_ID = o.Customer_ID
+ 13  INNER JOIN Order_Details od
+ 14  ON o.Order_ID = od.Order_ID
+ 15  INNER JOIN Product p
+ 16  ON od.Product_ID = p.Product_ID
+ 17  INNER JOIN Payment py
+ 18  ON o.Order_ID = py.Order_ID
+ 19  ORDER BY c.Customer_ID;
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+        101 Anitha Kumar                                              201
+16-SEP-26
+Organic Turmeric Powder
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+         3       3000 UPI
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+        101 Anitha Kumar                                              201
+16-SEP-26
+Black Pepper
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+         1        500 UPI
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+        101 Anitha Kumar                                              204
+20-SEP-26
+Bamboo Toothbrush
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+         5       1000 UPI
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+        102 Rahul                                                     202
+15-SEP-26
+Bamboo Toothbrush
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+         4        800 Card
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+        102 Rahul                                                     202
+15-SEP-26
+Black Pepper
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+         2       1000 Card
+Successful
+
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+        103 Priya                                                     203
+12-SEP-26
+Reusable Water Bottle
+
+CUSTOMER_ID CUSTOMER_NAME                                        ORDER_ID
+----------- -------------------------------------------------- ----------
+ORDER_DAT
+---------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+  QUANTITY   SUBTOTAL PAYMENT_MODE
+---------- ---------- ------------------------------
+PAYMENT_STATUS
+------------------------------
+         4       3200 Net Banking
+Successful
+
+SQL SELECT c.Customer_ID,
+  2  c.Customer_Name,
+  3  COUNT(DISTINCT o.Order_ID) AS Total_Orders,
+  4  SUM(od.Subtotal) AS Total_Purchase,
+  5  SUM(od.Quantity) AS Total_Products
+  6  FROM Customer c
+  7  INNER JOIN Orders o
+  8  ON c.Customer_ID = o.Customer_ID
+  9  INNER JOIN Order_Details od
+ 10  ON o.Order_ID = od.Order_ID
+ 11  GROUP BY c.Customer_ID, c.Customer_Name
+ 12  ORDER BY Total_Purchase DESC;
+
+CUSTOMER_ID CUSTOMER_NAME                                      TOTAL_ORDERS
+----------- -------------------------------------------------- ------------
+TOTAL_PURCHASE TOTAL_PRODUCTS
+-------------- --------------
+        101 Anitha Kumar                                                  2
+          4500              9
+
+        103 Priya                                                         1
+          3200              4
+
+        102 Rahul                                                         1
+          1800              6
+
+
+SQL SELECT py.Payment_ID,
+  2  c.Customer_Name,
+  3  o.Order_ID,
+  4  py.Payment_Date,
+  5  py.Payment_Mode,
+  6  py.Payment_Amount,
+  7  py.Payment_Status
+  8  FROM Payment py
+  9  INNER JOIN Orders o
+ 10  ON py.Order_ID = o.Order_ID
+ 11  INNER JOIN Customer c
+ 12  ON o.Customer_ID = c.Customer_ID
+ 13  ORDER BY py.Payment_Date DESC;
+
+PAYMENT_ID CUSTOMER_NAME                                        ORDER_ID
+---------- -------------------------------------------------- ----------
+PAYMENT_D PAYMENT_MODE                   PAYMENT_AMOUNT
+--------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+       504 Anitha Kumar                                              204
+20-SEP-26 UPI                                      1000
+Successful
+
+       501 Anitha Kumar                                              201
+16-SEP-26 UPI                                      3500
+Successful
+
+PAYMENT_ID CUSTOMER_NAME                                        ORDER_ID
+---------- -------------------------------------------------- ----------
+PAYMENT_D PAYMENT_MODE                   PAYMENT_AMOUNT
+--------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+
+       502 Rahul                                                     202
+15-SEP-26 Card                                     1800
+Successful
+
+       503 Priya                                                     203
+12-SEP-26 Net Banking                              3200
+
+PAYMENT_ID CUSTOMER_NAME                                        ORDER_ID
+---------- -------------------------------------------------- ----------
+PAYMENT_D PAYMENT_MODE                   PAYMENT_AMOUNT
+--------- ------------------------------ --------------
+PAYMENT_STATUS
+------------------------------
+Successful
